@@ -1,0 +1,87 @@
+flowchart TD
+    subgraph "User Interface"
+        A["📬 Roundcube Container
+        - PHP Webmail Interface
+        - Ghostbox Plugin (AI Sidebar)
+        - Nginx/Apache Webserver"]
+    end
+
+    subgraph "Email Services"
+        B["📥 Mail Server Container
+        - Dovecot (IMAP)
+        - Postfix (SMTP)
+        - Persisted Mail Volume"]
+    end
+
+    subgraph "Monitoring & Queue"
+        C["🔔 Watchdog Container
+        - Mail Change Detection
+        - Event Triggering"]
+        
+        D["📝 Celery Container
+        - Redis for Message Broker
+        - Task Distribution
+        - Worker Processes"]
+    end
+
+    subgraph "AI Processing"
+        E["🧠 Ghostbox AI Container
+        - Classification Models
+        - Summarization Engine
+        - Intent Detection
+        - LLM Integration"]
+    end
+
+    subgraph "Data Storage"
+        F["PostgreSQL Container
+        - Metadata Storage
+        - Persisted Volume"]
+        
+        G["Vector DB Container
+        - txtai/Chroma
+        - Embeddings Storage
+        - Persisted Volume"]
+        
+        H["Persona Engine Container
+        - Style Templates
+        - Matching Algorithms"]
+    end
+
+    subgraph "Output Generation"
+        J["📤 Markdown Writer Container
+        - Export Service
+        - Metadata Enrichment"]
+        
+        K["📓 Obsidian Container
+        - Local Sync Client
+        - Web Interface
+        - Persisted Vault Volume"]
+        
+        L["🎨 Graph Generator Container
+        - JSON Builder
+        - Visualization Service"]
+    end
+
+    A <-->|"IMAP/SMTP"| B
+    B -->|"Monitors"| C
+    C -->|"Triggers"| D
+    D -->|"Sends Tasks"| E
+    E -->|"Stores Data"| F & G & H
+    F & G & H -->|"Provides Data"| J
+    J -->|"Writes To"| K
+    K -->|"Analyzes"| L
+    
+    subgraph "Docker Network: ghostbox-net"
+    end
+    
+    subgraph "Docker Volumes"
+        V1["mail-data"]
+        V2["postgres-data"]
+        V3["vector-data"]
+        V4["obsidian-vault"]
+    end
+    
+    B -.->|"Persists"| V1
+    F -.->|"Persists"| V2
+    G -.->|"Persists"| V3
+    K -.->|"Persists"| V4
