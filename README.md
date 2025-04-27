@@ -19,7 +19,7 @@ This project is currently under active development and is in its early private s
 
 ---
 **Ownership Note:**  
-CortexONE is solely developed and maintained by [Your Name] as of April 27, 2025.  
+CortexONE is solely developed and maintained by Saqib A. Khan as of April 27, 2025.  
 All previous collaborators have relinquished involvement.
 ---
 
