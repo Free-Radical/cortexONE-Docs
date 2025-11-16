@@ -1,0 +1,18 @@
+Cortex1 Cleaned Transcript (until 2025-11-15)
+
+This file is a high-level cleaned summary of the long chat history where:
+- The user and assistant iteratively defined Cortex1's scope.
+- Multiple architectures were considered and Option A was chosen:
+  a single linear pipeline with shared modules and pluggable domain modules.
+- Strong privacy requirements were set:
+  mandatory PII scrubbing and Zero Data Retention for cloud models.
+- Device autodetection was introduced:
+  automatic routing based on whether a powerful GPU desktop, CPU-only laptop,
+  or minimal environment is in use.
+- Seven Habits organizing framework was separated from the generic Task engine
+  so that other organizing systems can be plugged in later.
+- A unified Knowledge Store (txtai or similar) was established as the 360-degree
+  world model for the user, integrating emails, tasks, notes, and other documents.
+
+For full fidelity, refer back to the original chat logs in ChatGPT.
+This file is intended as an orientation and summary, not a verbatim transcript.
