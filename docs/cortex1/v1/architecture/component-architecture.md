@@ -57,6 +57,9 @@ Core components:
     - Implements your 7 Habits framework:
       Daily Mission, Weekly Compass, roles, big rocks.
     - Uses generic TaskModule for actual task execution.
+  - ClientAdapters (e.g., Obsidian plugin, future note apps)
+    - Thin adapters that send user input into the pipeline APIs and render outputs.
+    - Must not embed business logic; only handle UX, routing, and auth to the local API.
 
 - KnowledgeStore
   - Provides an API:
@@ -64,4 +67,3 @@ Core components:
     - search(query, filters)
     - link_entities(...)
   - Backed by txtai or any other vector+metadata engine.
-
