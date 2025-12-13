@@ -36,3 +36,30 @@ Device autodetect modes:
 Compliance:
 - All cloud endpoints must support Zero Data Retention (ZDR).
 - ModelGateway must never send raw PII to the cloud.
+
+## 3-Tier Cloud Model Escalation
+
+For cloud routing, implement cost-optimized tiered escalation:
+
+| Tier | Purpose | Characteristics |
+|------|---------|-----------------|
+| Tier 1 | Default processing | Cheapest, fastest, handles routine items (~80%) |
+| Tier 2 | Validation failures | Better structured output, moderate cost |
+| Tier 3 | VIP/Critical items | Best reasoning, highest cost |
+
+**Escalation Strategy:**
+1. VIP/Critical items → Tier 3 directly (no cost-cutting on important items)
+2. Normal items → Tier 1, retry once on failure, then Tier 2
+3. Tier 2 failure → Tier 3
+4. Tier 3 failure → Flag for human review
+
+**Design Rationale:**
+- Most items are routine → cheap tier handles them
+- Structured output models (coder variants) excel at JSON generation
+- Graceful degradation prevents returning garbage
+- Monthly pricing review ensures optimal model selection
+
+**Implementation Notes:**
+- Model selection is implementation-specific (changes with market pricing)
+- See implementation repo's `docs/llm-pricing-review.md` for current recommendations
+- Review pricing monthly (5th of each month) to capture market changes
