@@ -1,30 +1,79 @@
 # PII Scrubber Module
 
-Role:
-- Protect privacy by ensuring that any text sent to cloud LLMs does not contain raw personally identifiable information (PII).
+**PRIVACY-FIRST**: PII scrubbing is MANDATORY before any cloud model call.
 
-Key behavior:
-- Scans text for:
-  - Names, emails, phone numbers, physical addresses.
-  - Organization names, domain names, usernames, IDs.
-  - Account numbers and other obvious identifiers.
-- Replaces them with random, non-deterministic placeholders on each call:
-  - USER_x9kf, ORG_7pz3, EMAIL_4tqa, etc.
-- Does NOT preserve a long-term mapping:
-  - Mapping from original → placeholder exists only in memory for that function call and is then destroyed.
+## Role
 
-Non-determinism requirement:
-- Same name or email must result in different placeholder IDs across different calls.
-- This makes it much harder for an adversary or remote observer to correlate activity.
+Protect privacy by ensuring that any text sent to cloud LLMs does not contain raw personally identifiable information (PII).
 
-Interaction with local vs cloud:
-- For local models:
-  - Cortex1 can safely use raw content (at your option).
-- For cloud models:
-  - Cortex1 must always use PII-scrubbed text.
-  - Scrubbing happens before any network call is made.
+## Key Behavior
 
-Output:
-- Returns a pair:
-  - scrubbed_text
-  - optionally, a short "scrub metadata" structure for internal debugging (not stored long-term).
+Scans text for:
+- Names, emails, phone numbers, physical addresses
+- Organization names, domain names, usernames, IDs
+- Account numbers, SSNs, credit cards, and other identifiers
+
+Replaces with configurable placeholder format:
+- `<EMAIL_1>`, `<PHONE_1>` (deterministic mode)
+- `<EMAIL_x9kf>`, `<PHONE_7pz3>` (non-deterministic mode)
+
+## Scrubbing Modes
+
+### Non-Deterministic Mode (Maximum Privacy)
+
+- Same PII results in different placeholder IDs across calls
+- Mapping exists only in memory, destroyed after call
+- Makes correlation attacks much harder
+
+**Use for**: Production with maximum privacy requirements
+
+### Deterministic Mode (Default Implementation)
+
+- Same PII produces consistent placeholders within a session
+- Mapping can be logged for audit trail
+
+**Use for**: Development, testing, audit requirements
+
+### Design Decision
+
+The implementation defaults to **deterministic mode** because:
+1. Reproducible testing is essential for QA
+2. Audit trail supports compliance requirements
+3. PII never leaves local system regardless of token format
+4. Non-deterministic mode available via config flag
+
+This is a documented tradeoff, not a deviation from spec.
+
+## Interaction with Local vs Cloud
+
+**Local models**:
+- Can use raw content (user option)
+- Scrubbing optional but recommended
+
+**Cloud models**:
+- MUST always use PII-scrubbed text
+- Model Gateway enforces `scrubbed=True` flag
+- Scrubbing happens before any network call
+
+## Recommended Libraries
+
+- **scrubadub** (light): Basic PII detection, name detection with spacy
+- **Presidio** (enterprise): Microsoft's comprehensive PII detection
+
+## Output
+
+Returns:
+- `scrubbed_text`: Text with PII replaced by tokens
+- `scrub_metadata`: Structure with count and (optionally) mapping
+- `scrub_mode`: "deterministic" or "nondeterministic"
+
+## Configuration
+
+```bash
+# Scrubbing mode
+CORTEX_PII_MODE=deterministic      # Default - stable tokens
+CORTEX_PII_MODE=nondeterministic   # Maximum privacy - random tokens
+
+# Enable scrubadub library
+CORTEX_PII_USE_SCRUBADUB=1
+```
