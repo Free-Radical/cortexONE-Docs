@@ -14,5 +14,5 @@ This file is a high-level cleaned summary of the long chat history where:
 - A unified Knowledge Store (txtai or similar) was established as the 360-degree
   world model for the user, integrating emails, tasks, notes, and other documents.
 
-For full fidelity, refer back to the original chat logs in ChatGPT.
+For full fidelity, refer back to the original chat logs.
 This file is intended as an orientation and summary, not a verbatim transcript.

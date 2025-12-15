@@ -1,0 +1,28 @@
+# AI tool configs - NEVER commit
+.claude/
+.claude
+.cursor/
+.cursor
+.copilot/
+.copilot
+.codeium/
+.codeium
+.tabnine/
+.tabnine
+.continue/
+.continue
+.aider/
+.aider
+.windsurf/
+.windsurf
+
+# IDE settings
+.vscode/
+.idea/
+
+# OS files
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+nul
