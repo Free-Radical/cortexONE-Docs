@@ -1,6 +1,6 @@
 # CortexONE
 
-CortexONE is a cognitive assistant project designed to extend and enhance personal productivity, privacy, and intelligent workflows.
+CortexONE is a cognitive assistant project designed to extend and enhance personal productivity, privacy, and  workflows.
 
 This project is currently under active development and is in its early private stages.
 
