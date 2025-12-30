@@ -66,4 +66,8 @@ Core components:
     - add_documents(docs)
     - search(query, filters)
     - link_entities(...)
-  - Backed by txtai or any other vector+metadata engine.
+  - Backed by a local **knowledge service** implementation (not necessarily a single DB):
+    - SQLite for canonical metadata/provenance (system of record)
+    - SQLite FTS5 for keyword search (rebuildable index)
+    - txtai for semantic retrieval (rebuildable index)
+    - Store references to originals (URIs/hashes); avoid storing large binaries directly.

@@ -39,11 +39,12 @@ LAYERS (top to bottom):
    - Future org system modules (e.g., GTD, PARA) plug in at the same level.
 
 7) Knowledge Store Engine
-   - Local vector + metadata store (txtai or alternative).
-   - Holds emails, docs, tasks, Daily/Weekly history, derived facts and summaries.
-   - Acts as Cortex1's "world model".
+- Local knowledge service (stable API) backed by one or more engines.
+- Recommended default: SQLite (system of record) + FTS5 (keyword index) + txtai (vector index).
+- Holds emails, docs, tasks, Daily/Weekly history, derived facts and summaries.
+- Stores references to originals (URIs/hashes) and derived annotations; avoids storing large binaries directly.
+- Acts as Cortex1's "world model".
 
 8) Output Layer
    - Generates paste-ready artifacts:
      - Markdown bundles, mailto links, ICS files, checklists, change-logs, summaries.
-

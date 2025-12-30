@@ -4,6 +4,10 @@ Purpose:
 - Provide a thin UX layer that sends user input into Cortex1 and renders outputs.
 - Keep all business logic in the shared pipeline and domain modules.
 
+Design note:
+- UI outputs (e.g., Obsidian markdown) are best treated as **materialized views** that can be regenerated.
+- Originals (emails/files/media) remain in their native stores; Cortex persists only derived state and references locally.
+
 Responsibilities:
 - Collect input (commands, prompts, selections) and call local API endpoints.
 - Render outputs (summaries, drafts, action items) returned by the pipeline.
@@ -14,6 +18,7 @@ Non-responsibilities:
 - No business logic (routing, scrubbing, classification, planning).
 - No model calls; only use the ModelGateway via the pipeline APIs.
 - No direct database or Knowledge Store access; use the orchestration API.
+ - Do not rely on the UI vault as a system of record (avoid using markdown files as the primary datastore).
 
 Initial client: Obsidian plugin
 - Uses the local API/daemon to submit notes/emails/snippets for processing.
