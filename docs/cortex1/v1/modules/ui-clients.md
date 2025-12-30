@@ -18,7 +18,22 @@ Non-responsibilities:
 - No business logic (routing, scrubbing, classification, planning).
 - No model calls; only use the ModelGateway via the pipeline APIs.
 - No direct database or Knowledge Store access; use the orchestration API.
- - Do not rely on the UI vault as a system of record (avoid using markdown files as the primary datastore).
+- Do not rely on the UI vault as a system of record (avoid using markdown files as the primary datastore).
+
+## Obsidian as Interim Multi-Platform UI (Including iOS)
+
+Obsidian is a pragmatic early UI client because it already provides:
+- Cross-platform desktop clients
+- Mobile clients (iOS/Android)
+- Established sync options
+
+However, to keep the system scalable and future-proof:
+- Treat Obsidian content as **rendered outputs + user annotations**, not the canonical dataset.
+- Avoid syncing tens of thousands of per-email markdown files to mobile devices.
+  - Prefer dashboards/digests + “active set” views (P0/P1 + recent) for mobile.
+  - Keep deep links to originals (e.g., `thunderlink://` / provider URLs) as the primary way to access full-fidelity content.
+- Ensure any user edits in the UI (e.g., queue/bucket overrides, “reply needed” toggles) are captured as durable, syncable annotations
+  that can be reconciled back into the local Knowledge Store / metadata DB.
 
 Initial client: Obsidian plugin
 - Uses the local API/daemon to submit notes/emails/snippets for processing.

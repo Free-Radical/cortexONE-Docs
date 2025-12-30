@@ -10,7 +10,7 @@ Primary environments:
 1) Local Desktop with GPU (RTX 4070)
    - Components:
      - Local LLM server (Llama 3.x 8B or similar).
-     - txtai (or alternative) Knowledge Store.
+     - Local Knowledge Store service (e.g., SQLite + FTS5 + txtai).
      - Orchestrator and Pipeline services.
    - Here, Cortex1 can use high-capacity local models for most tasks and only occasionally call cloud models.
 
@@ -27,11 +27,20 @@ Primary environments:
    - Accessed only through the ModelGateway.
    - Receive only scrubbed content.
 
+4) Mobile Device (iOS/Android)
+   - Components:
+     - UI client only (e.g., Obsidian, or a dedicated mobile app).
+     - Optional offline cache of recent dashboards/summaries.
+   - Best practice:
+     - The phone should not be the system of record and should not host large indexes.
+     - It connects to a local “hub” machine running Cortex services (directly or via a secure tunnel/VPN).
+
 Network view (conceptual):
 
 - Local Machine (any of your devices):
   - Runs Orchestrator, Extractor, Tagger, PII Scrubber, Knowledge Store.
   - Optionally runs local LLMs (depending on hardware).
+  - Acts as the local “hub” for thin clients (desktop UI, mobile UI, email-client extensions).
 
 - Cloud LLM endpoints:
   - Called only via HTTPS.
