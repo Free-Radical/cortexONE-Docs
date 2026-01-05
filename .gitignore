@@ -1,4 +1,9 @@
 # AI tool configs - NEVER commit
+CLAUDE.md
+CLAUDE.*.md
+scripts/check_ai_attribution.py
+scripts/install_hooks.py
+.ai_attribution_whitelist
 .claude/
 .claude
 .cursor/
@@ -13,8 +18,11 @@
 .continue
 .aider/
 .aider
+.aider*
 .windsurf/
 .windsurf
+.ai/
+.aiconfig
 
 # IDE settings
 .vscode/
