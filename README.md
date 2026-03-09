@@ -1,3 +1,9 @@
+> **CROSS-REPO SYNC:** This repo is part of the cortex1/zeroveil ecosystem.
+> Docs changes here may require updates in sibling repos. Before changing
+> architecture, APIs, field names, or features — check if other repos need updating.
+> Repos: `cortex1-core`, `cortexONE-Docs`, `zeroveil-gateway-pro`, `zeroveil-pro` (SDK),
+> `cortex1-forge`, `cortex1-tbird-sync`.
+
 # CortexONE
 
 CortexONE is a cognitive assistant project designed to extend and enhance personal productivity, privacy, and  workflows.
@@ -18,17 +24,17 @@ This project is currently under active development and is in its early private s
 ## Ownership
 
 ---
-**Ownership Note:**  
-CortexONE is solely developed and maintained by Saqib A. Khan as of April 27, 2025.  
+**Ownership Note:**
+CortexONE is solely developed and maintained by Saqib A. Khan as of April 27, 2025.
 All previous collaborators have relinquished involvement.
 ---
 
 ## License
 
-This project is licensed under the Business Source License 1.1 (BUSL-1.1).  
+This project is licensed under the Business Source License 1.1 (BUSL-1.1).
 Commercial use is restricted without explicit permission from the Licensor.
 
 ## Disclaimer
 
-This is a private, in-progress project.  
+This is a private, in-progress project.
 Please do not distribute or publish any part of this project without explicit permission from the owner.
