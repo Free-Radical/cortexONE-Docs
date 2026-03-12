@@ -6,8 +6,8 @@ This project has gone through multiple ideation phases:
   with Daily Mission, Weekly Compass, tasks, and email integration.
 - There were also prior diagrams with different architectural styles (more agent-like, or microservice-heavy).
 
-All older design artifacts and partial notes should be stored under `/archive/old_docs/`
-once migrated from previous locations.
+Older design artifacts and partial notes are preserved outside the public
+`main` branch in an unpublished archival branch/local backup.
 
 This document serves as a pointer that:
 - The architecture in `docs/SSOT-Core.md` supersedes older designs.
