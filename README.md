@@ -6,9 +6,11 @@
 
 # CortexONE
 
+> **License:** Source-available under CC BY-NC-SA 4.0. Personal, hobby, educational, research, evaluation, and other noncommercial use are allowed. Commercial, hosted, customer-facing, internal business, paid, or other monetized use requires a separate written license. See `LICENSE`, `NOTICE.md`, and `COMMERCIAL-LICENSE.md`.
+
 CortexONE is a cognitive assistant project designed to extend and enhance personal productivity, privacy, and  workflows.
 
-This project is currently under active development and is in its early private stages.
+This repository is publicly visible and source-available for personal and other noncommercial use.
 
 ## Project Goals
 - Local-first cognitive intelligence
@@ -17,9 +19,9 @@ This project is currently under active development and is in its early private s
 - Seamless integration with tools like Obsidian
 
 ## Status
-- Private development phase
+- Publicly visible, source-available documentation and specifications
 - Internal design and early tooling ongoing
-- Future open-source/public release plans under consideration
+- Commercial, hosted, customer-facing, internal business, paid, or other monetized use requires a separate written commercial license
 
 ## Ownership
 
@@ -31,10 +33,12 @@ All previous collaborators have relinquished involvement.
 
 ## License
 
-This project is licensed under the Business Source License 1.1 (BUSL-1.1).
-Commercial use is restricted without explicit permission from the Licensor.
+Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International.
+
+- Noncommercial copying, sharing, and adaptation are allowed under the license terms.
+- Commercial, hosted, customer-facing, internal business, paid, or other monetized use requires a separate written commercial license.
+- Contact: Saqib.Khan@Me.com
 
 ## Disclaimer
 
-This is a private, in-progress project.
-Please do not distribute or publish any part of this project without explicit permission from the owner.
+You may copy, share, and adapt this material for noncommercial use under the repository license. Commercial, hosted, customer-facing, internal business, paid, or other monetized use requires a separate written commercial license from the licensor.

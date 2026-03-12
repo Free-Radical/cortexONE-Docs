@@ -1,170 +1,237 @@
-Business Source License 1.1
+Attribution-NonCommercial-ShareAlike 4.0 International
 
-License text copyright © 2017 MariaDB Corporation Ab, All Rights Reserved.
-"Business Source License" is a trademark of MariaDB Corporation Ab.
+=======================================================================
 
--------------------------------------------------------------------------------
-PARAMETERS
--------------------------------------------------------------------------------
+Creative Commons Corporation ("Creative Commons") is not a law firm and
+does not provide legal services or legal advice. Distribution of
+Creative Commons public licenses does not create a lawyer-client or
+other relationship. Creative Commons makes its licenses and related
+information available on an "as-is" basis. Creative Commons gives no
+warranties regarding its licenses, any material licensed under their
+terms and conditions, or any related information. Creative Commons
+disclaims all liability for damages resulting from their use to the
+fullest extent possible.
 
-Licensor:
-  Saqib Ali Khan
+Using Creative Commons Public Licenses
 
-Licensed Work:
-  cortexONE-Docs (the "Licensed Work"), including all source code,
-  documentation, designs, architecture specifications, and related intellectual
-  property contained in this repository.
+Creative Commons public licenses provide a standard set of terms and
+conditions that creators and other rights holders may use to share
+original works of authorship and other material subject to copyright
+and certain other rights specified in the public license below. The
+following considerations are for informational purposes only, are not
+exhaustive, and do not form part of our licenses.
 
-Additional Use Grant:
-  This Additional Use Grant clarifies what constitutes permitted “Non-Production
-  Use” and what is prohibited.
+     Considerations for licensors: Our public licenses are
+     intended for use by those authorized to give the public
+     permission to use material in ways otherwise restricted by
+     copyright and certain other rights. Our licenses are
+     irrevocable. Licensors should read and understand the terms
+     and conditions of the license they choose before applying it.
+     Licensors should also secure all rights necessary before
+     applying our licenses so that the public can reuse the
+     material as expected. Licensors should clearly mark any
+     material not subject to the license. This includes other CC-
+     licensed material, or material used under an exception or
+     limitation to copyright. More considerations for licensors:
+    wiki.creativecommons.org/Considerations_for_licensors
 
-  1) PERMITTED USE (NON-PRODUCTION)
-     Subject to the Terms of this License, you may use, copy, modify, create
-     derivative works of, and redistribute the Licensed Work solely for
-     Non-Production Use, including:
-       - Personal, hobby, educational, research, or academic purposes; and
-       - Evaluation Use (as defined below).
+     Considerations for the public: By using one of our public
+     licenses, a licensor grants the public permission to use the
+     licensed material under specified terms and conditions. If
+     the licensor's permission is not necessary for any reason--for
+     example, because of any applicable exception or limitation to
+     copyright--then that use is not regulated by the license. Our
+     licenses grant only permissions under copyright and certain
+     other rights that a licensor has authority to grant. Use of
+     the licensed material may still be restricted for other
+     reasons, including because others have copyright or other
+     rights in the material. A licensor may make special requests,
+     such as asking that all changes be marked or described.
+     Although not required by our licenses, you are encouraged to
+     respect those requests where reasonable. More considerations
+     for the public:
+    wiki.creativecommons.org/Considerations_for_licensees
 
-  2) PROHIBITED USE (NO PRODUCTION / NO COMMERCIAL DEPLOYMENT)
-     You may NOT, without explicit written permission from the Licensor:
-       - Make any Production Use of the Licensed Work;
-       - Offer, provide, or make available the Licensed Work (or any derivative
-         work or substantial functionality of it) as a Service Offering;
-       - Use the Licensed Work for Commercial Advantage (other than Evaluation
-         Use as defined below);
-       - Incorporate, embed, bundle, or distribute the Licensed Work as part of
-         a commercial product, paid offering, or managed solution.
+=======================================================================
 
-  3) DEFINITIONS (FOR CLARITY)
-     a) "Non-Production Use" means use of the Licensed Work that is strictly
-        limited to development, testing, research, education, demonstration, or
-        evaluation, and that does NOT involve:
-          - processing real end-user/customer/patient/client data in a live
-            service, OR
-          - providing functionality of the Licensed Work to any third party, OR
-          - supporting production workloads, uptime commitments, or business-
-            critical operations.
+Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International
+Public License
 
-     b) "Production Use" includes any of the following (whether paid or free):
-          - Use in a live environment to process, transmit, store, or act on
-            real end-user/customer/patient/client data (including logs, prompts,
-            payloads, or identifiers), except where the data is strictly
-            synthetic test data;
-          - Use to support day-to-day internal business operations beyond
-            Evaluation Use (e.g., routing real internal tickets/emails/records);
-          - Use to provide or support any service to third parties (including a
-            free tier, beta, or pilot accessible by third parties);
-          - Use in any environment where the Licensed Work is relied upon for
-            production availability, reliability, or security controls.
+By exercising the Licensed Rights (defined below), You accept and agree
+to be bound by the terms and conditions of this Creative Commons
+Attribution-NonCommercial-ShareAlike 4.0 International Public License
+("Public License"). To the extent this Public License may be
+interpreted as a contract, You are granted the Licensed Rights in
+consideration of Your acceptance of these terms and conditions, and the
+Licensor grants You such rights in consideration of benefits the
+Licensor receives from making the Licensed Material available under
+these terms and conditions.
 
-     c) "Service Offering" means making the Licensed Work (or any derivative
-        work or substantial set of its features) available to any third party
-        as a hosted, managed, SaaS, API, or similar service, including where
-        access is provided indirectly (e.g., through an app, proxy, gateway,
-        embedded component, or “backend as a service”).
+Section 1 -- Definitions.
 
-     d) "Commercial Advantage" means any use intended for, directed toward, or
-        resulting in commercial, competitive, operational, or monetary benefit,
-        including internal use by an organization to support its operations or
-        deliver services to others. Commercial Advantage does NOT include
-        Evaluation Use (defined below).
+  a. Adapted Material means material subject to Copyright and Similar
+     Rights that is derived from or based upon the Licensed Material
+     and in which the Licensed Material is translated, altered,
+     arranged, transformed, or otherwise modified in a manner requiring
+     permission under the Copyright and Similar Rights held by the
+     Licensor. For purposes of this Public License, where the Licensed
+     Material is a musical work, performance, or sound recording,
+     Adapted Material is always produced where the Licensed Material is
+     synched in timed relation with a moving image.
 
-     e) "Evaluation Use" means internal testing and evaluation solely to assess
-        whether to obtain a commercial license from the Licensor, provided that
-        such use:
-          - is limited to non-production environments;
-          - uses only synthetic or properly de-identified test data;
-          - is not exposed to third parties; and
-          - is not used to deliver a product or service.
+  b. Adapter's License means the license You apply to Your Copyright
+     and Similar Rights in Your contributions to Adapted Material in
+     accordance with the terms and conditions of this Public License.
 
-     f) "Organization" includes any entity (for-profit or non-profit), and all
-        affiliates under common control.
+  c. BY-NC-SA Compatible License means a license listed at
+     creativecommons.org/compatiblelicenses, approved by Creative
+     Commons as essentially the equivalent of this Public License.
 
-  4) LICENSE INQUIRIES
-     For production, commercial, hosted, embedded, or otherwise prohibited use,
-     contact: Saqib.Khan@Me.com
+  d. Copyright and Similar Rights means copyright and/or similar rights
+     closely related to copyright including, without limitation,
+     performance, broadcast, sound recording, and Sui Generis Database
+     Rights, without regard to how the rights are labeled or
+     categorized. For purposes of this Public License, the rights
+     specified in Section 2(b)(1)-(2) are not Copyright and Similar
+     Rights.
 
-Change Date:
-  2030-01-01
+  e. Effective Technological Measures means those measures that, in the
+     absence of proper authority, may not be circumvented under laws
+     fulfilling obligations under Article 11 of the WIPO Copyright
+     Treaty adopted on December 20, 1996, and/or similar international
+     agreements.
 
-Change License:
-  Apache License, Version 2.0
+  f. Exceptions and Limitations means fair use, fair dealing, and/or
+     any other exception or limitation to Copyright and Similar Rights
+     that applies to Your use of the Licensed Material.
 
-Notice:
-  Business Source License 1.1 is not an Open Source license. However, the
-  Licensed Work will eventually be made available under the Change License as
-  stated above.
+  g. License Elements means the license attributes listed in the name
+     of a Creative Commons Public License. The License Elements of this
+     Public License are Attribution, NonCommercial, and ShareAlike.
 
-  Licensor may shorten (but never extend) the Change Date only by publishing a
-  notice in this repository at least 180 days in advance.
+  h. Licensed Material means the artistic or literary work, database,
+     or other material to which the Licensor applied this Public
+     License.
 
--------------------------------------------------------------------------------
-TERMS (BUSL-1.1)
--------------------------------------------------------------------------------
+  i. Licensed Rights means the rights granted to You subject to the
+     terms and conditions of this Public License, which are limited to
+     all Copyright and Similar Rights that apply to Your use of the
+     Licensed Material and that the Licensor has authority to license.
 
-Terms
+  j. Licensor means the individual(s) or entity(ies) granting rights
+     under this Public License.
 
-The Licensor hereby grants you the right to copy, modify, create derivative
-works, redistribute, and make non-production use of the Licensed Work. The
-Licensor may make an Additional Use Grant, above, permitting limited production
-use.
+  k. NonCommercial means not primarily intended for or directed towards
+     commercial advantage or monetary compensation. For purposes of
+     this Public License, the exchange of the Licensed Material for
+     other material subject to Copyright and Similar Rights by digital
+     file-sharing or similar means is NonCommercial provided there is
+     no payment of monetary compensation in connection with the
+     exchange.
 
-Effective on the Change Date, or the fourth anniversary of the first publicly
-available distribution of a specific version of the Licensed Work under this
-License, whichever comes first, the Licensor hereby grants you rights under the
-terms of the Change License, and the rights granted in the paragraph above
-terminate.
+  l. Share means to provide material to the public by any means or
+     process that requires permission under the Licensed Rights, such
+     as reproduction, public display, public performance, distribution,
+     dissemination, communication, or importation, and to make material
+     available to the public including in ways that members of the
+     public may access the material from a place and at a time
+     individually chosen by them.
 
-If your use of the Licensed Work does not comply with the requirements currently
-in effect as described in this License, you must purchase a commercial license
-from the Licensor, its affiliated entities, or authorized resellers, or you
-must refrain from using the Licensed Work.
+  m. Sui Generis Database Rights means rights other than copyright
+     resulting from Directive 96/9/EC of the European Parliament and of
+     the Council of 11 March 1996 on the legal protection of databases,
+     as amended and/or succeeded, as well as other essentially
+     equivalent rights anywhere in the world.
 
-All copies of the original and modified Licensed Work, and derivative works of
-the Licensed Work, are subject to this License. This License applies separately
-for each version of the Licensed Work and the Change Date may vary for each
-version of the Licensed Work released by Licensor.
+  n. You means the individual or entity exercising the Licensed Rights
+     under this Public License. Your has a corresponding meaning.
 
-You must conspicuously display this License on each original or modified copy
-of the Licensed Work. If you receive the Licensed Work in original or modified
-form from a third party, the terms and conditions set forth in this License
-apply to your use of that work.
+Section 2 -- Scope.
 
-Any use of the Licensed Work in violation of this License will automatically
-terminate your rights under this License for the current and all other versions
-of the Licensed Work.
+  a. License grant.
 
-This License does not grant you any right in any trademark or logo of Licensor
-or its affiliates (provided that you may use a trademark or logo of Licensor as
-expressly required by this License).
+       1. Subject to the terms and conditions of this Public License,
+          the Licensor hereby grants You a worldwide, royalty-free,
+          non-sublicensable, non-exclusive, irrevocable license to
+          exercise the Licensed Rights in the Licensed Material to:
 
-TO THE EXTENT PERMITTED BY APPLICABLE LAW, THE LICENSED WORK IS PROVIDED ON AN
-"AS IS" BASIS. LICENSOR HEREBY DISCLAIMS ALL WARRANTIES AND CONDITIONS, EXPRESS
-OR IMPLIED, INCLUDING (WITHOUT LIMITATION) WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE, NON-INFRINGEMENT, AND TITLE.
+            a. reproduce and Share the Licensed Material, in whole or
+               in part, for NonCommercial purposes only; and
 
-MariaDB hereby grants you permission to use this License's text to license your
-works, and to refer to it using the trademark "Business Source License", as long
-as you comply with the Covenants of Licensor below.
+            b. produce, reproduce, and Share Adapted Material for
+               NonCommercial purposes only.
 
-Covenants of Licensor
+       2. Exceptions and Limitations. For the avoidance of doubt, where
+          Exceptions and Limitations apply to Your use, this Public
+          License does not apply, and You do not need to comply with
+          its terms and conditions.
 
-In consideration of the right to use this License's text and the "Business
-Source License" name and trademark, Licensor covenants to MariaDB, and to all
-other recipients of the licensed work to be provided by Licensor:
+       3. Term. The term of this Public License is specified in Section
+          6(a).
 
-  1. To specify as the Change License the GPL Version 2.0 or any later version,
-     or a license that is compatible with GPL Version 2.0 or a later version,
-     where "compatible" means that software provided under the Change License
-     can be included in a program with software provided under GPL Version 2.0
-     or a later version. Licensor may specify additional Change Licenses without
-     limitation.
+       4. Media and formats; technical modifications allowed. The
+          Licensor authorizes You to exercise the Licensed Rights in
+          all media and formats whether now known or hereafter created,
+          and to make technical modifications necessary to do so. The
+          Licensor waives and/or agrees not to assert any right or
+          authority to forbid You from making technical modifications
+          necessary to exercise the Licensed Rights, including
+          technical modifications necessary to circumvent Effective
+          Technological Measures. For purposes of this Public License,
+          simply making modifications authorized by this Section 2(a)
+          (4) never produces Adapted Material.
 
-  2. To either: (a) specify an additional grant of rights to use that does not
-     impose any additional restriction on the right granted in this License, as
-     the Additional Use Grant; or (b) insert the text "None".
+       5. Downstream recipients.
 
-  3. To specify a Change Date.
+            a. Offer from the Licensor -- Licensed Material. Every
+               recipient of the Licensed Material automatically
+               receives an offer from the Licensor to exercise the
+               Licensed Rights under the terms and conditions of this
+               Public License.
 
-  4. Not to modify this License in any other way.
+            b. Additional offer from the Licensor -- Adapted Material.
+               Every recipient of Adapted Material from You
+               automatically receives an offer from the Licensor to
+               exercise the Licensed Rights in the Adapted Material
+               under the conditions of the Adapter's License You apply.
+
+            c. No downstream restrictions. You may not offer or impose
+               any additional or different terms or conditions on, or
+               apply any Effective Technological Measures to, the
+               Licensed Material if doing so restricts exercise of the
+               Licensed Rights by any recipient of the Licensed
+               Material.
+
+       6. No endorsement. Nothing in this Public License constitutes or
+          may be construed as permission to assert or imply that You
+          are, or that Your use of the Licensed Material is, connected
+          with, or sponsored, endorsed, or granted official status by,
+          the Licensor or others designated to receive attribution as
+          provided in Section 3(a)(1)(A)(i).
+
+  b. Other rights.
+
+       1. Moral rights, such as the right of integrity, are not
+          licensed under this Public License, nor are publicity,
+          privacy, and/or other similar personality rights; however, to
+          the extent possible, the Licensor waives and/or agrees not to
+          assert any such rights held by the Licensor to the limited
+          extent necessary to allow You to exercise the Licensed
+          Rights, but not otherwise.
+
+       2. Patent and trademark rights are not licensed under this
+          Public License.
+
+       3. To the extent possible, the Licensor waives any right to
+          collect royalties from You for the exercise of the Licensed
+          Rights, whether directly or through a collecting society
+          under any voluntary or waivable statutory or compulsory
+          licensing scheme. In all other cases the Licensor expressly
+          reserves any right to collect such royalties, including when
+          the Licensed Material is used other than for NonCommercial
+          purposes.
+
+Section 3 -- License Conditions.
+
+Your exercise of the Licensed Rights is expressly made subject to the
+following conditions.
