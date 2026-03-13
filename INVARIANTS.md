@@ -31,3 +31,7 @@ When deleting or removing code, features, or dependencies, all associated artifa
 - Config entries, env vars, and imports that reference removed modules
 
 Build artifacts, runtime logs, and files belonging to other repos must not accumulate in the working tree. Add them to `.gitignore` or delete them.
+
+## Repository Visibility
+
+This repository is **public** (source-available). It serves as the architecture Single Source of Truth and must remain accessible to contributors across all implementation repos. Do not make this repo private without updating cross-repo sync instructions in all dependent repos.
