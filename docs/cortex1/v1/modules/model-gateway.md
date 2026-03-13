@@ -76,3 +76,42 @@ For cloud routing, implement cost-optimized tiered escalation:
 - Model selection is implementation-specific (changes with market pricing)
 - See implementation repo's `docs/llm-pricing-review.md` for current recommendations
 - Review pricing monthly (5th of each month) to capture market changes
+- Static model name assignments in tier config will be superseded by quality contract calibration (see below)
+
+**Migration Status:**
+- Phases 0–2 DONE: tier routing, validation, and cost tracking are implemented in `zeroveil-gateway-pro`
+
+## Quality Contracts (Planned)
+
+Quality contracts replace static model name configuration with empirically-calibrated tier assignment. Instead of hardcoding which model belongs to which tier, apps define what "good output" looks like and let the gateway discover the cheapest model that satisfies it.
+
+### How It Works
+
+1. **App defines task types + golden examples** — specified in YAML alongside the app (e.g., `quality_contracts/email_classify.yaml`). Each contract names a task type and provides representative input/output pairs that represent acceptable quality.
+
+2. **SDK scrubs and sends examples to gateway for calibration** — the SDK (with `auto_scrub=True`) pre-scrubs all golden examples before submitting them, so no raw PII ever leaves the client during calibration.
+
+3. **Gateway tests models and auto-assigns tiers** — the gateway runs each candidate model against the golden examples and scores results. Assignment rule:
+   - Tier 1: cheapest model that passes the quality bar
+   - Tier 2: next-best mid-cost model
+   - Tier 3: best available model (used for VIP/critical items and final fallback)
+
+4. **Calibration runs daily or weekly, cached per tenant** — results are stored server-side. Apps consume the current calibration automatically with no config changes required.
+
+5. **Override escape hatch** — a specific model can be pinned per task type via policy config, bypassing calibration. Use for compliance, reproducibility, or vendor lock-in requirements.
+
+### Privacy Controls
+
+- Golden examples must be pre-scrubbed before submission (SDK `auto_scrub=True` enforces this by default)
+- Gateway baseline PII gate runs unconditionally on every calibration and inference request (see `pii-scrubber.md`)
+- Calibration data is stored per-tenant and never shared across tenants
+
+### What This Replaces
+
+Static tier config entries such as:
+```
+tier1_model: "some-model-name"
+tier2_model: "some-other-model"
+tier3_model: "best-model"
+```
+are replaced by a quality contract YAML + gateway-managed calibration. The escalation logic (T1 → T2 → T3) described above remains unchanged — quality contracts only change how models are assigned to tiers.

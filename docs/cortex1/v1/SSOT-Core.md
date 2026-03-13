@@ -25,3 +25,9 @@ Cortex1 is a single linear processing pipeline:
 **Input → Extractor → Tagger → PII Scrubber → Router → Model Gateway → Domain Module → Knowledge Store → Output**
 
 with shared global modules (Extractor, Tagger, PII Scrubber, Model Gateway), pluggable domain modules (Email, Tasks, Seven Habits, future org systems), a unified local Knowledge Store, mandatory PII scrubbing before any cloud model call, and automatic device-mode detection (GPU-capable, CPU-only, or cloud-dominant).
+
+---
+
+## Model Tier Assignment
+
+The Model Gateway uses a 3-tier cloud escalation strategy (T1 cheapest → T3 best). Tier assignment is moving from static model name configuration to empirically-calibrated **quality contracts**: apps define golden examples per task type, and the gateway discovers the cheapest model that meets the quality bar. Static tier config entries will be replaced by this mechanism. See `docs/cortex1/v1/modules/model-gateway.md` for the full quality contracts design.

@@ -66,9 +66,37 @@ ZeroVeil SDK provides packaged PII scrubbing for use with ZeroVeil Gateway:
 - **ZeroVeil SDK** (BSL, no fee): Presidio-based scrubbing, basic relay client.
 - **ZeroVeil SDK Pro** (BSL + paid license): Presidio + regex + scrubadub, deterministic + non-deterministic modes, reversible token mapping, scrub audit logging.
 
-The SDK scrubs client-side; the Gateway rejects any PII that slips through as a safety net.
+The SDK scrubs client-side; the Gateway baseline PII gate catches anything the SDK misses.
 
 See `zeroveil-gateway-pro/docs/editions.md` for the full product matrix.
+
+## Baseline PII Gate (Gateway-Pro — Hard Security Invariant)
+
+ZeroVeil Gateway Pro runs a baseline PII scan unconditionally on every request before forwarding to any model. This is a hard security invariant — it cannot be disabled by policy config.
+
+### What the Baseline Scans
+
+The baseline gate uses fast regex to detect the most dangerous PII categories:
+- Social Security Numbers (SSNs)
+- Credit card numbers
+- Email addresses
+- Phone numbers
+
+### Relationship to Policy Config
+
+The `pii_gate.enabled` policy flag controls **extended** PII detection (PHI patterns, custom regex patterns, configurable entity types). It does NOT control the baseline scan. The baseline runs regardless of `pii_gate.enabled`:
+
+| `pii_gate.enabled` | Baseline scan (SSN, CC, email, phone) | Extended scan (PHI, custom patterns) |
+|--------------------|---------------------------------------|---------------------------------------|
+| `true`             | Always runs                           | Runs                                  |
+| `false`            | Always runs                           | Skipped                               |
+
+### Two-Layer Protection
+
+1. **SDK layer** (client-side): SDK scrubs with `auto_scrub=True` by default. Catches names, emails, phones, addresses, account numbers, and other identifiers using Presidio + scrubadub.
+2. **Gateway baseline layer** (server-side): Catches anything that slipped through the SDK, using fast regex on the four highest-risk categories.
+
+This two-layer model ensures that even a misconfigured or outdated SDK version cannot cause raw SSNs or credit card numbers to reach a cloud model.
 
 ## Output
 
