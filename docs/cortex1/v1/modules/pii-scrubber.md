@@ -60,6 +60,16 @@ This is a documented tradeoff, not a deviation from spec.
 - **scrubadub** (light): Basic PII detection, name detection with spacy
 - **Presidio** (enterprise): Microsoft's comprehensive PII detection
 
+## ZeroVeil SDK Integration
+
+ZeroVeil SDK provides packaged PII scrubbing for use with ZeroVeil Gateway:
+- **ZeroVeil SDK** (BSL, no fee): Presidio-based scrubbing, basic relay client.
+- **ZeroVeil SDK Pro** (BSL + paid license): Presidio + regex + scrubadub, deterministic + non-deterministic modes, reversible token mapping, scrub audit logging.
+
+The SDK scrubs client-side; the Gateway rejects any PII that slips through as a safety net.
+
+See `zeroveil-gateway-pro/docs/editions.md` for the full product matrix.
+
 ## Output
 
 Returns:

@@ -37,6 +37,19 @@ Compliance:
 - All cloud endpoints must support Zero Data Retention (ZDR).
 - ModelGateway must never send raw PII to the cloud.
 
+## ZeroVeil Gateway Integration
+
+When cloud routing goes through ZeroVeil Gateway, the gateway provides additional DLP controls (PII rejection, model allowlists, rate limits, audit logging) and optionally mixer-based correlation resistance.
+
+ZeroVeil ships five product tiers across SDKs and Gateways:
+- **SDK / SDK Pro** — Client-side PII scrubbing (local). SDK Pro adds reversible tokens, multiple backends, audit logging.
+- **Gateway Community / Gateway Pro** — Server-side policy enforcement. Pro adds tier escalation, SSO, SIEM, signed audit logs.
+- **Gateway Relay** — Hosted-only. Mixer + shared relay identity. Provider cannot identify individual tenants.
+
+For interactive chat, **Open WebUI** (MIT, 126k+ GitHub stars) is the recommended frontend. It speaks OpenAI-compatible API natively — point it at the gateway and all DLP controls apply transparently. Works on any device including iPhone (PWA).
+
+See `zeroveil-gateway-pro/docs/editions.md` for the full product matrix, use cases, and trust model.
+
 ## 3-Tier Cloud Model Escalation
 
 For cloud routing, implement cost-optimized tiered escalation:
