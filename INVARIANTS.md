@@ -58,3 +58,10 @@ If the user does not confirm, the push MUST be blocked. Non-interactive pushes (
 - No proprietary algorithm descriptions beyond what the public architecture docs intentionally expose
 - No config files or env templates with real values
 - No content copied from private repos without explicit approval from the repo owner
+
+## Branch Hygiene
+
+- **Single-branch policy:** All completed work MUST be merged to `main`. No long-lived feature branches.
+- **Before every push:** Verify only `main` exists on remote (`git branch -r`). Stale branches must be deleted.
+- **Before starting work:** Check for stale local or remote branches and clean them up.
+- **Recovery:** All deleted branch commits remain recoverable via `git reflog` (90 days local) and by commit hash on GitHub (permanent).
