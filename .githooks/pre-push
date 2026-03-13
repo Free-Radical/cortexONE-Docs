@@ -1,0 +1,29 @@
+#!/usr/bin/env bash
+# pre-push hook for cortexONE-Docs
+# Proprietary content guard for this PUBLIC repository.
+set -euo pipefail
+
+# ── Proprietary Content Guard (PUBLIC REPO) ──────────────────────
+# This repo is PUBLIC. Warn the user before every push.
+if [ -t 1 ] && [ "${CORTEX_SKIP_PUBLIC_WARN:-}" != "1" ]; then
+    echo ""
+    echo "╔══════════════════════════════════════════════════════════════╗"
+    echo "║  WARNING: This is a PUBLIC repository.                      ║"
+    echo "║  Have you verified no proprietary content or secrets are    ║"
+    echo "║  included in this push?                                     ║"
+    echo "╚══════════════════════════════════════════════════════════════╝"
+    echo ""
+    read -r -p "Continue with push? [y/N] " confirm < /dev/tty
+    if [[ ! "$confirm" =~ ^[Yy]$ ]]; then
+        echo "[pre-push] Push aborted by user."
+        exit 1
+    fi
+elif [ ! -t 1 ] && [ "${CORTEX_SKIP_PUBLIC_WARN:-}" != "1" ]; then
+    echo "[pre-push] ERROR: Non-interactive push to PUBLIC repo blocked."
+    echo "[pre-push] Set CORTEX_SKIP_PUBLIC_WARN=1 to bypass (CI/CD only)."
+    exit 1
+fi
+# ─────────────────────────────────────────────────────────────────
+
+echo "[pre-push] All gates passed"
+exit 0

@@ -35,3 +35,26 @@ Build artifacts, runtime logs, and files belonging to other repos must not accum
 ## Repository Visibility
 
 This repository is **public** (source-available). It serves as the architecture Single Source of Truth and must remain accessible to contributors across all implementation repos. Do not make this repo private without updating cross-repo sync instructions in all dependent repos.
+
+## Proprietary Content Guard (Public Repo)
+
+This repository is **public**. Before every push, reasonable efforts MUST be made to verify that no proprietary techniques, secret algorithms, implementation details, API keys, credentials, or "secret sauce" from private repos (cortex1-core, zeroveil-gateway-pro, zeroveil-pro, cortex1-forge) has leaked into this documentation.
+
+**Pre-push requirement:** The pre-push hook MUST display a prominent warning and require explicit user acknowledgment (interactive Y/n prompt) before allowing any push to a remote. The warning must state:
+
+```
+╔══════════════════════════════════════════════════════════════╗
+║  WARNING: This is a PUBLIC repository.                      ║
+║  Have you verified no proprietary content or secrets are    ║
+║  included in this push?                                     ║
+╚══════════════════════════════════════════════════════════════╝
+```
+
+If the user does not confirm, the push MUST be blocked. Non-interactive pushes (CI/CD) should fail-safe by blocking unless an explicit bypass env var is set.
+
+**What to check:**
+- No implementation details that belong only in private repos (this repo is design-level SSOT, not implementation)
+- No API keys, auth tokens, credentials, or internal hostnames
+- No proprietary algorithm descriptions beyond what the public architecture docs intentionally expose
+- No config files or env templates with real values
+- No content copied from private repos without explicit approval from the repo owner
