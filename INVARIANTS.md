@@ -21,3 +21,13 @@ Code must never leave this repo with AI tool attribution. Three layers enforce t
 - `.ai_attribution_config` — repo owner identity for the scanner
 
 **Scanner location:** `~/bin/ai_attribution_check.sh`
+
+## No Stale or Misplaced Files
+
+When deleting or removing code, features, or dependencies, all associated artifacts MUST be cleaned up in the same commit:
+- Documentation that describes the removed feature
+- Tests that test the removed code
+- Hook references, CI config, and package.json scripts that invoke removed files
+- Config entries, env vars, and imports that reference removed modules
+
+Build artifacts, runtime logs, and files belonging to other repos must not accumulate in the working tree. Add them to `.gitignore` or delete them.
