@@ -20,6 +20,8 @@ LAYERS (top to bottom):
    - Central controller that receives normalized items and decides:
      - Which shared modules to call (sequence is fixed).
      - Which domain module to invoke (Email, Task, Seven Habits, etc.).
+   - Routes requests to the AgentRegistry for all external provider calls (email, tasks, calendar).
+   - Never calls provider SDKs directly — always dispatches through the registry.
 
 4) Shared Pipeline Services
    - Extractor: pulls structured fields out of content.
@@ -37,6 +39,9 @@ LAYERS (top to bottom):
    - Task Module: generic task engine independent of any productivity framework.
    - Seven Habits Module: Daily Mission and Weekly Compass logic (roles, big rocks, etc.).
    - Future org system modules (e.g., GTD, PARA) plug in at the same level.
+   - All external data access (fetching tasks from Google, events from calendar) goes through
+     the AgentRegistry, never through direct provider SDK calls.
+   - See architecture/agent-registry.md for the full extensibility design.
 
 7) Knowledge Store Engine
 - Local knowledge service (stable API) backed by one or more engines.

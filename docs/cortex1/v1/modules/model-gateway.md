@@ -41,6 +41,8 @@ Compliance:
 
 When cloud routing goes through ZeroVeil Gateway, the gateway provides additional DLP controls (PII rejection, model allowlists, rate limits, audit logging) and optionally mixer-based correlation resistance.
 
+For the current Cortex appliance, ZeroVeil is the strict gateway path for model traffic. Cortex components call the ModelGateway, and provider-bound requests are routed through ZeroVeil policy enforcement rather than ad hoc provider clients.
+
 ZeroVeil ships five product tiers across SDKs and Gateways:
 - **SDK / SDK Pro** — Client-side PII scrubbing (local). SDK Pro adds reversible tokens, multiple backends, audit logging.
 - **Gateway Community / Gateway Pro** — Server-side policy enforcement. Pro adds tier escalation, SSO, SIEM, signed audit logs.
@@ -49,6 +51,15 @@ ZeroVeil ships five product tiers across SDKs and Gateways:
 For interactive chat, **Open WebUI** (MIT, 126k+ GitHub stars) is the recommended frontend. It speaks OpenAI-compatible API natively — point it at the gateway and all DLP controls apply transparently. Works on any device including iPhone (PWA).
 
 See `zeroveil-gateway-pro/docs/editions.md` for the full product matrix, use cases, and trust model.
+
+## ZeroVeil Proxy Contract
+
+For OpenAI-compatible clients that talk to the ZeroVeil SDK Proxy instead of importing the SDK:
+- `GET /healthz` is a local proxy liveness check.
+- `GET /healthz?deep=true` is forwarded to the gateway so callers can display upstream gateway/provider health.
+- SDK clients also expose `versions()` so callers can report both the local SDK version and the upstream gateway/router version when the upstream publishes it.
+- `POST /v1/chat/completions` forwards request-body `metadata` unchanged; app hints such as `metadata.priority` and `metadata.task_type` remain caller-controlled.
+- Chat responses include `X-ZeroVeil-Scrub-Count`, the number of PII matches scrubbed by the proxy for that request.
 
 ## 3-Tier Cloud Model Escalation
 
@@ -80,10 +91,14 @@ For cloud routing, implement cost-optimized tiered escalation:
 
 **Migration Status:**
 - Phases 0–2 DONE: tier routing, validation, and cost tracking are implemented in `zeroveil-gateway-pro`
+- Monthly model quality/pricing review exists as the current operational control.
+- Guarded AI/ML quality gates in cortex1-core replay real, synthetic, and dogfood corpora to protect actionability safety for direct action, waiting, security, finance, and legal signals.
 
 ## Quality Contracts (Planned)
 
 Quality contracts replace static model name configuration with empirically-calibrated tier assignment. Instead of hardcoding which model belongs to which tier, apps define what "good output" looks like and let the gateway discover the cheapest model that satisfies it.
+
+Current status: quality-contract design is documented, and guarded corpus replay provides the near-term safety gate. Full gateway-managed quality-contract calibration is not yet documented as a shipped standalone architecture capability.
 
 ### How It Works
 

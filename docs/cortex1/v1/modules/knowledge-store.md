@@ -3,6 +3,11 @@
 Role:
 - Provide a unified API for storing and retrieving user data for Cortex1.
 
+End goal:
+- The Knowledge Store is Cortex1's **world model** — a comprehensive local index of the user's information across all inputs and time.
+- The richer and more complete the world model, the better every pipeline decision becomes: triage accuracy, reply quality, task extraction, pattern detection.
+- This means ingestion must be **comprehensive and continuous**, not limited to the current inbox or session.
+
 Key idea:
 - The **Knowledge Store is an API**, not “one database.”
 - It may be implemented as a **composition** of multiple local storage engines (metadata + full-text + vectors),
@@ -84,3 +89,16 @@ Design principles:
 - The rest of Cortex1 only speaks to the Knowledge Store via a stable API.
 - The underlying database/engine can be swapped without breaking higher-level logic.
 - The Knowledge Store runs locally; external systems never directly access it.
+
+## Ingestion Strategy: Two Modes
+
+The world model requires two ingestion modes operating in parallel:
+
+1. **Active ingestion (startup + real-time)**: Process current unread/incoming items immediately. Action-oriented — feeds the triage dashboard.
+2. **Historical backfill (background, rate-limited)**: Gradually index all past inputs not yet in the Knowledge Store. Intelligence-oriented — builds the world model over time.
+
+Rules:
+- Backfill runs at low priority and does not block the UI or active ingestion.
+- Backfill is idempotent: deduplication on `source_dedupe_key` ensures re-runs are safe.
+- Known noise (spam, bulk newsletters) may be skipped or summarized rather than fully indexed.
+- Backfill should be resumable: track a `last_backfill_cursor` per source adapter.

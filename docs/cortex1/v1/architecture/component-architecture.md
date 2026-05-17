@@ -16,6 +16,12 @@ Core components:
   - Entry point for processing a new item.
   - Calls shared services in order, then calls a domain module.
 
+- AgentRegistry
+  - Single wiring point between server and all external agents.
+  - Maps domain protocols (EmailAgent, TaskAgent, CalendarAgent) to concrete implementations.
+  - Loaded once at startup from config; no component above it may call provider SDKs directly.
+  - See architecture/agent-registry.md for full design.
+
 - Extractor (Shared)
   - Does structural parsing across all content types.
   - Example responsibilities:

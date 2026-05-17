@@ -5,6 +5,24 @@ Type: Deployment Diagram (described in text).
 Goal:
 - Show where each major component runs in a realistic environment.
 
+Current appliance-style topology:
+
+- Cortex server container:
+  - Runs the application server, orchestrator, email triage pipeline, Knowledge Store, and dashboard API.
+  - Owns local state and remains the system of record for Cortex data.
+- ZeroVeil router/gateway:
+  - Provides the strict model-routing path for cloud or local model calls.
+  - Enforces privacy controls, model policy, and routing decisions before any provider request.
+- Thunderbird email client:
+  - Remains the user-facing mail client for the MVP email workflow.
+  - Connects to Cortex through the tbird-sync bridge over WebSocket rather than acting as a generalized provider abstraction.
+- Remote UI:
+  - Exposes the desktop/browser experience through an Xpra or browser bridge when the appliance is accessed remotely.
+  - Keeps the UI thin; persistent state remains on the Cortex server.
+- LAN proxy:
+  - Provides local-network access to the appliance services.
+  - Should expose only the intended UI/API surfaces and avoid direct access to internal services.
+
 Primary environments:
 
 1) Local Desktop with GPU (RTX 4070)

@@ -4,6 +4,9 @@ CLAUDE.*.md
 scripts/check_ai_attribution.py
 scripts/install_hooks.py
 .ai_attribution_whitelist
+.ai_attribution_config
+.private/
+__pycache__/
 .claude/
 .claude
 .cursor/
