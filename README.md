@@ -21,7 +21,7 @@ This repository is publicly visible. Its documents are offered under Creative Co
 ## Status
 - Publicly visible, source-available documentation and specifications
 - Internal design and early tooling ongoing
-- Commercial, hosted, customer-facing, internal business, paid, or other monetized use requires a separate written commercial license
+- The software described here (Cortex1 and ZeroVeil) is licensed separately; commercial, hosted, customer-facing, internal business, paid, or other monetized use of that software requires a separate written commercial license
 
 ## Ownership
 
