@@ -6,11 +6,11 @@
 
 # CortexONE
 
-> **License:** Source-available under CC BY-NC-SA 4.0. Personal, hobby, educational, research, evaluation, and other noncommercial use are allowed. Commercial, hosted, customer-facing, internal business, paid, or other monetized use requires a separate written license. See `LICENSE`, `NOTICE.md`, and `COMMERCIAL-LICENSE.md`.
+> **License:** These documents are licensed under Creative Commons Attribution 4.0 International (CC BY 4.0). Attribution: Saqib A. Khan, cortexONE-Docs, https://github.com/Free-Radical/cortexONE-Docs. This license covers the documents in this repository only; the Cortex1 and ZeroVeil software is licensed separately. See `LICENSE`; license history is in `NOTICE.md`.
 
 CortexONE is a cognitive assistant project designed to extend and enhance personal productivity, privacy, and  workflows.
 
-This repository is publicly visible and source-available for personal and other noncommercial use.
+This repository is publicly visible. Its documents are offered under Creative Commons Attribution 4.0 International (CC BY 4.0); the software is licensed separately.
 
 ## Project Goals
 - Local-first cognitive intelligence
@@ -33,12 +33,13 @@ All previous collaborators have relinquished involvement.
 
 ## License
 
-Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International.
+Creative Commons Attribution 4.0 International (CC BY 4.0). See `LICENSE` for the full text.
 
-- Noncommercial copying, sharing, and adaptation are allowed under the license terms.
-- Commercial, hosted, customer-facing, internal business, paid, or other monetized use requires a separate written commercial license.
+- Attribution: Saqib A. Khan, cortexONE-Docs, https://github.com/Free-Radical/cortexONE-Docs
+- License history (earlier versions remain under the license they were published with): see `NOTICE.md`.
+- This license covers the documents in this repository only. The Cortex1 and ZeroVeil software is licensed separately: https://github.com/Free-Radical/Cortex1-ZeroVeil
 - Contact: Saqib.Khan@Me.com
 
 ## Disclaimer
 
-You may copy, share, and adapt this material for noncommercial use under the repository license. Commercial, hosted, customer-facing, internal business, paid, or other monetized use requires a separate written commercial license from the licensor.
+The material is provided as-is, without warranties, as set out in Section 5 of the license.

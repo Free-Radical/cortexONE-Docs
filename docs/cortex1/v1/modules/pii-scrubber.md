@@ -63,8 +63,8 @@ This is a documented tradeoff, not a deviation from spec.
 ## ZeroVeil SDK Integration
 
 ZeroVeil SDK provides packaged PII scrubbing for use with ZeroVeil Gateway:
-- **ZeroVeil SDK** (BSL, no fee): Presidio-based scrubbing, basic relay client.
-- **ZeroVeil SDK Pro** (BSL + paid license): Presidio + regex + scrubadub, deterministic + non-deterministic modes, reversible token mapping, scrub audit logging.
+- **ZeroVeil SDK** (PolyForm Noncommercial 1.0.0): Presidio-based scrubbing, basic relay client.
+- **ZeroVeil SDK Pro** (commercial license): Presidio + regex + scrubadub, deterministic + non-deterministic modes, reversible token mapping, scrub audit logging.
 
 The SDK scrubs client-side; the Gateway baseline PII gate catches anything the SDK misses.
 

@@ -21,5 +21,5 @@ These docs become wrong when implementation repos advance without matching publi
 - [x] Privacy/PII data flow docs
 - [x] Model Gateway quality-contract design/status notes
 - [x] Baseline PII gate docs (always-on gateway baseline)
-- [x] License (PolyForm Noncommercial)
+- [x] License (Creative Commons Attribution 4.0 International (CC BY 4.0); history in NOTICE.md)
 - [x] INVARIANTS.md, CHANGELOG.md, NOTICE.md
